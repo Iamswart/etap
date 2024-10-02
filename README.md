@@ -1,8 +1,8 @@
-# Divest Online Bookstore
+# ETAP Learning Management System
 
 ## Overview
 
-Divest Online Bookstore is a web application for managing books, carts, and orders for an online bookstore.
+ETAP Learning Management System is a web application for managing subjects, topics, and learning progress for an online educational platform.
 
 ## Table of Contents
 
@@ -16,7 +16,7 @@ Divest Online Bookstore is a web application for managing books, carts, and orde
 ### Prerequisites
 
 - Node.js and npm installed
-- PostgreSQL database (using ElephantSQL)
+- PostgreSQL database
 
 ### Installation
 
@@ -44,7 +44,11 @@ Divest Online Bookstore is a web application for managing books, carts, and orde
    NODE_ENV=local
 
    # Database configuration
-   DATABASE_URL=<Your ElephantSQL URL>
+   DATABASE_URL=<Your PostgreSQL URL>
+   DB_USERNAME=<Your PostgreSQL USER>
+   DB_PASSWORD=<Your PostgreSQL PASSWORD>
+   DB_HOST=<Your PostgreSQL HOST>
+   DB_PORT=<Your PostgreSQL PORT>
 
    # JWT configuration
    JWT_SECRET_KEY=<Your JWT Secret>
@@ -81,7 +85,7 @@ Divest Online Bookstore is a web application for managing books, carts, and orde
 
 5. API Documentation
 
-   You can view the API documentation by navigating to http://localhost:3000/api-docs.
+   You can view the API documentation by navigating to http://localhost:3000/api/v1/api-docs.
 
 ## Usage
 
@@ -89,31 +93,38 @@ Divest Online Bookstore is a web application for managing books, carts, and orde
 
 - POST /auth/login - Login a user
 - POST /auth/register - Register a new user
+- POST /auth/change-password - Change user password
+- POST /auth/validate-token - Validate token
 
-### Books
+### Subjects
 
-- GET /books - Search books
-- POST /books - Create a new book
-- GET /books/:id - View book details
+- POST /subjects - Create a new subject
+- GET /subjects - Get all subjects
+- GET /subjects/:slug - Get subject by slug
+- PUT /subjects/:slug - Update subject
+- DELETE /subjects/:slug - Delete subject
+- GET /subjects/:slug/topics - Get subject topics
+- GET /subjects/:slug/ranked-learners - Get ranked learners for a subject
 
-### Cart
+### Topics
 
-- GET /cart - View cart
-- POST /cart - Add a book to cart
-- PUT /cart - Update cart item quantity
-- DELETE /cart/:cartItemId - Remove item from cart
+- POST /topics - Create a new topic
+- GET /topics/:slug - Get topic by slug
+- PUT /topics/:slug - Update topic
+- DELETE /topics/:slug - Delete topic
+- POST /topics/:slug/complete - Mark topic as completed
+- GET /topics/:slug/completion-status - Get topic completion status
+- GET /topics/:slug/leaderboard - Get topic leaderboard
 
-### Orders
+### Learning Progress
 
-- POST /orders - Create a new order
-- GET /orders - Get order history
-- GET /orders/:orderId - Get order by ID
+- GET /progress/user-progress - Get user progress
 
 ## API Documentation
 
 ### Swagger Doc
 
-- You can view the API documentation by navigating to http://localhost:3000/api-docs after starting the server.
+- You can view the API documentation by navigating to http://localhost:3000/api/v1/api-docs after starting the server.
 
 ## Scripts
 

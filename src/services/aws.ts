@@ -13,7 +13,7 @@ AWS.config.update({
   secretAccessKey: config.aws.secretKey,
 });
 
-const SES_SENDER_NAME = process.env.SES_SENDER_NAME || "USE DIVEST";
+const SES_SENDER_NAME = process.env.SES_SENDER_NAME || "ETAP";
 const SES_SOURCE_EMAIL = process.env.SES_SOURCE_EMAIL as string;
 const SES_REPLY_TO_EMAIL = process.env.SES_REPLY_TO_EMAIL as string;
 
